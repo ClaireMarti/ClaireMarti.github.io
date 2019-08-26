@@ -41,8 +41,9 @@
         windowWidth = self.innerWidth,
         windowHeight = self.innerHeight,
         posLeftPercetange = ((cursorX - windowWidth / 2) * 2/ windowWidth) * 10, // turn cursorX pos into a percentage
-        posTopPercentage = (cursorY / windowHeight) * 4; // turn cursorY pos into a percentage
+        posTopPercentage = (cursorY / windowHeight) * 6; // turn cursorY pos into a percentage
 
+        if (posTopPercentage > 14) posTopPercentage = 14;
 
         $("#faceImage").css({left:cX + posLeftPercetange, top: cY + posTopPercentage});
     }
@@ -278,7 +279,7 @@
 
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
   <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top" onclick="updateFace(0, 0);">
       <i class="fa fa-chevron-up"></i>
     </a>
   </div>
