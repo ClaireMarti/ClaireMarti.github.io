@@ -68,6 +68,22 @@
 
 
     $( window ).ready(function() {
+
+      updateFace(0, 0);
+
+        $( "#faceBody" ).animate({
+          opacity: 1.0,
+        }, 500, function() {
+          // Animation complete.
+        });
+
+        
+        $( "#faceImage" ).animate({
+          opacity: 1.0,
+        }, 500, function() {
+          // Animation complete.
+        });
+        
       
       var images = [
       "img/portfolio/valentine.png", 
@@ -87,21 +103,6 @@
       "img/portfolio/logo.png"];
 
       images.forEach(addThumbnails);
-
-      updateFace(0, 0);
-
-        $( "#faceBody" ).animate({
-          opacity: 1.0,
-        }, 500, function() {
-          // Animation complete.
-        });
-
-        
-        $( "#faceImage" ).animate({
-          opacity: 1.0,
-        }, 500, function() {
-          // Animation complete.
-        });
     });
 
   </script>
