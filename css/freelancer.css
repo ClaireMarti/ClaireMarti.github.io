@@ -10732,16 +10732,20 @@ a.text-dark:hover, a.text-dark:focus {
 
 
 .masthead .masthead-heading {
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 3.5rem;
   font-family: "Barlow";
   font-weight: 800;
   font-style: normal;
 }
 
-.masthead .masthead-subheading {
-  font-size: 1.25rem;
-  color: #4f4d4f;
+.masthead .masthead-subheading {    
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  font-family: "Barlow";
+  font-weight: 100 !important;
+  font-style: normal;
+  color: #e6adb8;
 }
 
 .masthead .masthead-avatar {
