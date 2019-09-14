@@ -48,8 +48,15 @@
         $("#faceImage").css({left:cX + posLeftPercetange, top: cY + posTopPercentage});
     }
 
-
     function addThumbnails(item, index) {
+        if (item.slice(-3) == "mp4") {
+            addThumbnailVideo(item, index);
+        } else {
+            addThumbnailImage(item, index);
+        }
+    }
+
+    function addThumbnailImage(item, index) {
       var element = "<div class=\"col-md-6 col-lg-4\">";
       element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index +"\">";
       element += "<div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">"
@@ -61,6 +68,23 @@
 
       var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
       modal += '<img class="img-fluid rounded mb-5" src="' + item +'" alt="">';
+      modal += '<button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close</button></div></div></div></div></div></div></div>';
+
+      document.getElementById("page-top").innerHTML += modal;
+    } 
+
+    function addThumbnailVideo(item, index) {
+      var element = "<div class=\"col-md-6 col-lg-4\">";
+      element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index +"\">";
+      element += "<div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">"
+      element += "<div class=\"portfolio-item-caption-content text-center text-black\">";
+      element += "<i class=\"fas fa-plus fa-3x\"></i></div></div>";
+      element += "<video class=\"img-fluid\" autoplay loop muted playsinline><source src=\"" + item + "\" type=\"video/mp4\"></video></div></div>";
+
+      document.getElementById("thumbnails").innerHTML += element;
+
+      var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
+      modal += "<video class=\"img-fluid rounded mb-5\" autoplay loop muted playsinline><source src=\"" + item + "\" type=\"video/mp4\"></video>";
       modal += '<button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close</button></div></div></div></div></div></div></div>';
 
       document.getElementById("page-top").innerHTML += modal;
@@ -94,6 +118,7 @@
       "img/portfolio/app.png",
       "img/portfolio/music.png",
       "img/portfolio/desk.gif",
+      "img/portfolio/music-site.mp4",
       ];
 
       updateFace(0, 0);
