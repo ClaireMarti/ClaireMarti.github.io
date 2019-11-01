@@ -67,7 +67,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #F8F8F8;
 }
 
 [tabindex="-1"]:focus {
@@ -401,7 +401,7 @@ h6, .h6 {
 }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 
@@ -6915,7 +6915,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #fff5f7 !important;
+  background-color: #FFFFFF !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6925,7 +6925,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #fff5f7 !important;
+  background-color: #fff !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -10565,14 +10565,14 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .page-section .page-section-heading {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   padding-bottom: 3rem;
 }
 
 @media (min-width: 992px) {
   .page-section .page-section-heading {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 2.5rem;
     padding-bottom: 3rem;
   }
@@ -10732,7 +10732,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 
 .masthead .masthead-heading {
-  font-size: 3rem;
+  font-size: 1.5rem;
   line-height: 3.5rem;
   font-family: "Montserrat";
   font-weight: 800;
@@ -10740,7 +10740,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .masthead .masthead-subheading {    
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   line-height: 3.5rem;
   font-family: "Montserrat";
   font-weight: 100 !important;
@@ -10769,14 +10769,14 @@ a.text-dark:hover, a.text-dark:focus {
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
-    font-size: 4rem;
+    font-size: 2rem;
     line-height: 3.5rem;
     font-family: "Montserrat";
-    font-weight: 800;
+    font-weight: 500;
     font-style: normal;
   }
   .masthead .masthead-subheading {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 3.5rem;
     font-family: "Montserrat";
     font-weight: 100 !important;
