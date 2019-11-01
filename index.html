@@ -58,7 +58,7 @@
 
     function addThumbnailImage(item, index, doc) {
       var element = "<div class=\"col-md-6 col-lg-4\">";
-      element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index +"\">";
+      element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index + doc +"\">";
       element += "<div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">"
       element += "<div class=\"portfolio-item-caption-content text-center text-black\">";
       element += "<i class=\"fas fa-plus fa-3x\"></i></div></div>";
@@ -66,7 +66,7 @@
 
       document.getElementById(doc).innerHTML += element;
 
-      var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
+      var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index + doc +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
       modal += '<img class="img-fluid rounded mb-5" src="' + item +'" alt="">';
       modal += '<button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close</button></div></div></div></div></div></div></div>';
 
