@@ -48,15 +48,15 @@
         $("#faceImage").css({left:cX + posLeftPercetange, top: cY + posTopPercentage});
     }
 
-    function addThumbnails(item, index) {
+    function addThumbnails(item, index, doc) {
         if (item.slice(-3) == "mp4") {
-            addThumbnailVideo(item, index);
+            addThumbnailVideo(item, index, doc);
         } else {
-            addThumbnailImage(item, index);
+            addThumbnailImage(item, index, doc);
         }
     }
 
-    function addThumbnailImage(item, index) {
+    function addThumbnailImage(item, index, doc) {
       var element = "<div class=\"col-md-6 col-lg-4\">";
       element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index +"\">";
       element += "<div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">"
@@ -64,7 +64,7 @@
       element += "<i class=\"fas fa-plus fa-3x\"></i></div></div>";
       element += "<img class=\"img-fluid\" src=\"" + item + "\"></div></div>";
 
-      document.getElementById("thumbnails").innerHTML += element;
+      document.getElementById(doc).innerHTML += element;
 
       var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
       modal += '<img class="img-fluid rounded mb-5" src="' + item +'" alt="">';
@@ -73,7 +73,7 @@
       document.getElementById("page-top").innerHTML += modal;
     } 
 
-    function addThumbnailVideo(item, index) {
+    function addThumbnailVideo(item, index, doc) {
       var element = "<div class=\"col-md-6 col-lg-4\">";
       element += "<div class=\"portfolio-item mx-auto\" data-toggle=\"modal\" data-target=\"#portfolioModal" + index +"\">";
       element += "<div class=\"portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100\">"
@@ -81,7 +81,7 @@
       element += "<i class=\"fas fa-plus fa-3x\"></i></div></div>";
       element += "<video class=\"img-fluid\" autoplay loop muted playsinline><source src=\"" + item + "\" type=\"video/mp4\"></video></div></div>";
 
-      document.getElementById("thumbnails").innerHTML += element;
+      document.getElementById(doc).innerHTML += element;
 
       var modal ='<div class="portfolio-modal modal fade" id="portfolioModal' + index +'" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button><div class="modal-body text-center"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">';
       modal += "<video class=\"img-fluid rounded mb-5\" autoplay loop muted playsinline><source src=\"" + item + "\" type=\"video/mp4\"></video>";
@@ -94,30 +94,30 @@
     $( window ).ready(function() {
 
       
-      var images = [
+      var images_ui = [
       "img/portfolio/switch02.gif",
       "img/portfolio/valentine.png",
       "img/portfolio/asian-cook.mp4",
-      "img/portfolio/older.mp4",
-      "img/portfolio/walking-cycle.gif", 
-      "img/portfolio/checkout.png", 
+      ];
+
+      var images_edition = [
+      "img/portfolio/desk.mp4",
+      "img/portfolio/music-site.mp4",
+      "img/portfolio/Back-Market.png",
+      ];
+
+      var images_animation = [
       "img/portfolio/isometry.jpg", 
       "img/portfolio/desert.png", 
       "img/portfolio/travel.gif",
       "img/portfolio/message.png", 
       "img/portfolio/poster-kartable.png",
       "img/portfolio/newsletter.png",
-      "img/portfolio/flyer.png",
-      "img/portfolio/share.gif",
-      "img/portfolio/CVH.jpg",
-      "img/portfolio/astronaut.mp4",
-      "img/portfolio/business-card.png",
-      "img/portfolio/trip.mp4",
-      "img/portfolio/music.png",
-      "img/portfolio/desk.mp4",
-      "img/portfolio/music-site.mp4",
-      "img/portfolio/Back-Market.png",
-      "img/portfolio/BM.mp4",
+      ];
+
+      var images_branding = [
+      "img/portfolio/switch02.gif",
+      "img/portfolio/valentine.png",
       "img/portfolio/email.mp4",
       ];
 
@@ -133,7 +133,22 @@
         $( "#faceImage" ).animate({
           opacity: 1.0,
         }, 100, function() {
-          images.forEach(addThumbnails);
+          var i;
+          for (i = 0; i < images_ui.length; i++) {
+            addThumbnails(images_ui[i], i, "thumbnails");
+          }
+
+          for (i = 0; i < images_edition.length; i++) {
+            addThumbnails(images_edition[i], i, "thumbnails-2");
+          }
+
+          for (i = 0; i < images_animation.length; i++) {
+            addThumbnails(images_animation[i], i, "thumbnails-3");
+          }
+
+          for (i = 0; i < images_branding.length; i++) {
+            addThumbnails(images_branding[i], i, "thumbnails-4");
+          }
         });
 
 
@@ -196,15 +211,36 @@
   <section class="page-section portfolio" id="portfolio">
     <div class="container">
 
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-secondary mb-0">Work</h2>
-
-      <!-- Portfolio Grid Items -->
-      <div class="row" id="thumbnails">
-
-      </div>
+<ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="ui-tab" data-toggle="tab" href="#ui" role="tab" aria-controls="ui" aria-selected="true">UI</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="edition-tab" data-toggle="tab" href="#edition" role="tab" aria-controls="edition" aria-selected="false">Edition</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="animation-tab" data-toggle="tab" href="#animation" role="tab" aria-controls="animation" aria-selected="false">Animation</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="branding-tab" data-toggle="tab" href="#branding" role="tab" aria-controls="branding" aria-selected="false">Branding</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="ui" role="tabpanel" aria-labelledby="ui-tab">
+    <!-- Portfolio Grid Items -->
+      <div class="row mt-4" id="thumbnails"></div>
       <!-- /.row -->
-
+  </div>
+  <div class="tab-pane fade" id="edition" role="tabpanel" aria-labelledby="edition-tab">
+      <div class="row mt-4" id="thumbnails-2"></div>
+  </div>
+  <div class="tab-pane fade" id="animation" role="tabpanel" aria-labelledby="animation-tab">
+      <div class="row mt-4" id="thumbnails-3"></div>
+  </div>
+  <div class="tab-pane fade" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+      <div class="row mt-4" id="thumbnails-4"></div>
+  </div>
+</div>
     </div>
   </section>
 
